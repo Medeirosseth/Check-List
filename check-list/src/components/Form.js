@@ -1,15 +1,26 @@
 import React from "react";
 
-const Form = ({ setInputText }) => {
+const Form = ({ setInputText, todos, setTodos, inputText }) => {
   /// here are javascript code and functions 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
 
+  const submitToDoHandler = (e) => {
+    e.preventDefault();
+    setTodos([
+      ...todos, 
+      {text: inputText, 
+      completed: false, 
+      id: Math.random() * 100 }
+    ])
+    setInputText('');
+  }
+
   return(
     <form>
-      <input onChange={inputTextHandler} type="text" className="checklist-input" />
-      <button className="checklist-button" type="submit">
+      <input value={inputText} onChange={inputTextHandler} type="text" className="checklist-input" />
+      <button onClick={submitToDoHandler} className="checklist-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
       <div>
