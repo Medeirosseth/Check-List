@@ -1,6 +1,6 @@
 import React from "react";
 
-const Form = ({ setInputText, todos, setTodos, inputText }) => {
+const Form = ({ setInputText, todos, setTodos, inputText, setStatus }) => {
   /// here are javascript code and functions 
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
@@ -17,6 +17,10 @@ const Form = ({ setInputText, todos, setTodos, inputText }) => {
     setInputText('');
   }
 
+  const statusHandler = (e) => {
+    setStatus(e.target.value)
+  }
+
   return(
     <form>
       <input value={inputText} onChange={inputTextHandler} type="text" className="checklist-input" />
@@ -24,7 +28,7 @@ const Form = ({ setInputText, todos, setTodos, inputText }) => {
         <i className="fas fa-plus-square"></i>
       </button>
       <div>
-        <select name="occasion" className="filter-occasion">
+        <select onChange={statusHandler} name="occasion" className="filter-occasion">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="uncompleted">Uncompleted</option>
