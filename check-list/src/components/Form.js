@@ -1,11 +1,16 @@
 import React from "react";
 
-const Form = () => {
+const Form = ({ setInputText }) => {
+  /// here are javascript code and functions 
+  const inputTextHandler = (e) => {
+    setInputText(e.target.value);
+  };
+
   return(
     <form>
-      <input type="text" className="checklist-input" />
+      <input onChange={inputTextHandler} type="text" className="checklist-input" />
       <button className="checklist-button" type="submit">
-        <i class="fas fa-plus-square"></i>
+        <i className="fas fa-plus-square"></i>
       </button>
       <div>
         <select name="occasion" className="filter-occasion">
