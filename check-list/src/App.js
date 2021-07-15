@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-
 import Form from './components/Form'
 import CheckList from './components/CheckList';
 
@@ -18,7 +17,10 @@ function App() {
       todos={todos}
       setTodos={setTodos}
        />
-      <CheckList />
+      <CheckList 
+      todos={todos} 
+      setTodos={setTodos}
+      />
     </div>
   );
 }
